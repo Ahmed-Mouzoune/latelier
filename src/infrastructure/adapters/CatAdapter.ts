@@ -1,7 +1,7 @@
-export const catAdapterFromApiAtelier = (data: ICatApiAtelier): ICat => ({
+export const catAdapterFromAtelierApi = (data: ICatApiAtelier): ICat => ({
   id: data.id,
   imageUrl: data.url,
   score: 0,
 });
-export const catAdapterFromApiAtelierList = (data: ICatApiAtelier[]): ICat[] =>
-  data.map((cat) => catAdapterFromApiAtelier(cat));
+export const catListAdapterFromAtelierApi = (data: ICatApiAtelier[]): ICat[] =>
+  data.map((cat) => catAdapterFromAtelierApi(cat));
