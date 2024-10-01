@@ -7,5 +7,5 @@ export class CatRepository implements ICatRepository {
     const data = await response.json();
     return catAdapterFromApiAtelierList(data.images);
   }
-  voteForCat(catId: string): Promise<void> {}
+  // voteForCat(catId: string): Promise<void> {}
 }
