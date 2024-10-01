@@ -15,3 +15,14 @@ export const addCat = async (
 ): Promise<ICat | undefined> => {
   return await repository.addCat(cat);
 };
+
+export const voteForCat = async (
+  repository: ICatRepository,
+  cat: ICat
+): Promise<ICat | undefined> => {
+  const catWithVote = {
+    ...cat,
+    score: cat.score++,
+  };
+  return await repository.updateCat(catWithVote);
+};
