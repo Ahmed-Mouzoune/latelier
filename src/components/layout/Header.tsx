@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="sticky left-0 top-0 w-screen flex flex-col items-center py-2 bg-transparent">
+    <header className="w-screen flex flex-col items-center py-2 bg-transparent">
       <figure className="w-32 sm:w-60 h-auto">
         <Image
           src="/images/catmash-logo.webp"

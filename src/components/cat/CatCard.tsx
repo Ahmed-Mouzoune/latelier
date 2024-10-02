@@ -6,9 +6,9 @@ import { FaRegThumbsUp } from "react-icons/fa";
 export default function CatCard({ id, imageUrl, score }: ICat) {
   return (
     <Card>
-      <CardContent className="p-0">
+      <CardContent className="p-0 h-60 overflow-hidden">
         <Image
-          className="object-cover"
+          className="object-cover h-full"
           width={768}
           height={576}
           src={imageUrl}
@@ -16,7 +16,8 @@ export default function CatCard({ id, imageUrl, score }: ICat) {
         />
       </CardContent>
       <CardFooter className="p-2 justify-center items-center gap-2">
-        <span className="font-semibold">{score}</span> <FaRegThumbsUp />
+        <span className="font-semibold text-primary">{score}</span>{" "}
+        <FaRegThumbsUp className="fill-primary" />
       </CardFooter>
     </Card>
   );

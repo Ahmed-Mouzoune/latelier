@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Providers } from "@/lib/providers/providers";
 
 const delaGothicOne = localFont({
   src: "./fonts/DelaGothicOne-Regular.ttf",
@@ -19,8 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${delaGothicOne.variable} font-sans antialiased`}>
-        {children}
+      <body
+        className={`${delaGothicOne.variable} font-sans antialiased bg-primary-foreground`}
+      >
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

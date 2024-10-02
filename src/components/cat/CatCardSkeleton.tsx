@@ -6,8 +6,8 @@ import { Skeleton } from "../ui/skeleton";
 export default function CatCardSkeleton() {
   return (
     <Card>
-      <CardContent className="p-0">
-        <Skeleton className="h-60 w-full" />
+      <CardContent className="p-0 h-60 overflow-hidden">
+        <Skeleton className="h-full w-full" />
       </CardContent>
       <CardFooter className="p-2 justify-center items-center gap-2">
         <span className="font-semibold">
