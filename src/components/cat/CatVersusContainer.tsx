@@ -27,9 +27,10 @@ export default function CatVersusContainer() {
     return [];
   }, [data]);
 
-  const handleVote = (cat: ICat) => {
+  const handleVote = async (cat: ICat) => {
     mutation.mutate(cat);
   };
+
   if (isLoading) {
     return (
       <div className="w-full flex justify-evenly">
@@ -62,11 +63,15 @@ export default function CatVersusContainer() {
             " drop-shadow-[4px_0_10px_rgba(0,0,0,0.4)]"
           )}
         >
-          <CatVersusCard
-            id={allPairs[0][0].id}
-            imageUrl={allPairs[0][0].imageUrl}
-            score={allPairs[0][0].score}
-          />
+          {mutation.status === "pending" ? (
+            <CatVersusCardSkeleton />
+          ) : (
+            <CatVersusCard
+              id={allPairs[0][0].id}
+              imageUrl={allPairs[0][0].imageUrl}
+              score={allPairs[0][0].score}
+            />
+          )}
         </div>
         <div
           onClick={() => handleVote(allPairs[0][1])}
@@ -78,11 +83,15 @@ export default function CatVersusContainer() {
             "drop-shadow-[-4px_0_10px_rgba(0,0,0,0.4)]"
           )}
         >
-          <CatVersusCard
-            id={allPairs[0][1].id}
-            imageUrl={allPairs[0][1].imageUrl}
-            score={allPairs[0][1].score}
-          />
+          {mutation.status === "pending" ? (
+            <CatVersusCardSkeleton />
+          ) : (
+            <CatVersusCard
+              id={allPairs[0][1].id}
+              imageUrl={allPairs[0][1].imageUrl}
+              score={allPairs[0][1].score}
+            />
+          )}
         </div>
       </div>
     );
