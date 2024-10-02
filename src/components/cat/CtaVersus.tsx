@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function CtaVersus() {
   return (
     <Link href={"/versus"} passHref>
-      <Button className="capitalize gap-2">
-        voting
+      <Button size={"lg"} className="capitalize gap-2">
+        Start sending like for cat
         <FaPlayCircle />
       </Button>
     </Link>
