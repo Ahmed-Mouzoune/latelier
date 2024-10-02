@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import CatCardSkeleton from "./CatCardSkeleton";
 import { useQuery } from "@tanstack/react-query";
 import CatCard from "./CatCard";
@@ -11,9 +11,17 @@ export default function CatList() {
     queryFn: fetchAllCats,
   });
 
+  useEffect(() => {
+    if (data)
+      console.log(
+        "data sorted",
+        data.sort((a, b) => b.score - a.score)
+      );
+  }, [data]);
+
   return (
     <main className="container mx-auto p-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {isPending &&
           [0, 1, 2].map((cat, i) => (
             <CatCardSkeleton key={`cat-skeleton-number-${i}`} />
@@ -25,14 +33,16 @@ export default function CatList() {
           </p>
         )}
         {data &&
-          data.map((cat: ICat, i: number) => (
-            <CatCard
-              key={`cat-number-${i}`}
-              id={cat.id}
-              imageUrl={cat.imageUrl}
-              score={cat.score}
-            />
-          ))}
+          data
+            .sort((a, b) => b.score - a.score)
+            .map((cat: ICat, i: number) => (
+              <CatCard
+                key={`cat-number-${i}`}
+                id={cat.id}
+                imageUrl={cat.imageUrl}
+                score={cat.score}
+              />
+            ))}
       </div>
     </main>
   );

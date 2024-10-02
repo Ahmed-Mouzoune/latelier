@@ -5,7 +5,7 @@ import { FaRegThumbsUp } from "react-icons/fa";
 
 export default function CatCard({ id, imageUrl, score }: ICat) {
   return (
-    <Card className="">
+    <Card>
       <CardContent className="p-0 h-60 overflow-hidden">
         <Image
           className="object-cover h-full"

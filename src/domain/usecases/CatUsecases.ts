@@ -22,7 +22,7 @@ export const voteForCat = async (
 ): Promise<ICat | undefined> => {
   const catWithVote = {
     ...cat,
-    score: cat.score++,
+    score: cat.score + 1,
   };
   return await repository.updateCat(catWithVote);
 };
